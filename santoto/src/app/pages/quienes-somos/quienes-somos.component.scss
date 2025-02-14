@@ -1,0 +1,75 @@
+// 🎨 Paleta de colores
+$primary-color: #5e17eb; // Morado brillante
+$secondary-color: #a76eff; // Morado pastel
+$background-color: #330065; // Morado oscuro
+$white: #ffffff; // Blanco para el texto
+
+// 🔄 Mixins para reutilización
+@mixin flex-center($direction: column, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// 🏠 Contenedor principal
+.container {
+  width: 100%;
+  height: 100%; // Ajustado a toda la pantalla
+  background-color: $background-color;
+  @include flex-center(column, flex-start, center);
+  padding: 7rem 1rem 2rem;
+  box-sizing: border-box;
+  overflow: hidden; // Evita que se desborde en altura
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: $white;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .sections {
+    width: 100%;
+    max-width: 900px;
+    max-height: 70vh; // Limita la altura para permitir scroll
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+
+    // 🎯 Scroll bonito para navegadores modernos
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+    }
+  }
+}
+
+// 📌 Sección de contenido
+.section {
+  background-color: $primary-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 100%;
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $white;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-text {
+    font-size: 1rem;
+    color: $white;
+    word-wrap: break-word; // Evita que textos largos desborden el contenedor
+  }
+}

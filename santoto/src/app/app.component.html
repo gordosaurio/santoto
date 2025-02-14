@@ -1,0 +1,28 @@
+<header class="navbar">
+  <!-- Botón de menú hamburguesa -->
+  <button class="menu-toggle" (click)="toggleMenu()">
+    &#9776; <!-- Ícono de tres rayas -->
+  </button>
+
+  <!-- Menú de navegación -->
+  <nav class="nav-container" [class.show]="menuOpen">
+    <button class="nav-btn" (click)="redirigir('/quienes-somos')">¿Quiénes somos?</button>
+    <button class="nav-btn" (click)="redirigir('/que-publicamos')">¿Qué publicamos?</button>
+    <button class="nav-btn" (click)="redirigir('/nuestra-oferta')">Nuestra Oferta Académica</button>
+    <button class="nav-btn" (click)="redirigir('/encontremonos')">Encontrémonos</button>
+  </nav>
+</header>
+
+<!-- Carrusel (solo visible en la página principal) -->
+<div *ngIf="showCarousel" class="carousel-container">
+  <div class="carousel">
+    <div class="carousel-item" *ngFor="let img of images; let i = index" [class.active]="i === currentIndex">
+      <img [src]="img" alt="Imagen del carrusel">
+    </div>
+  </div>
+</div>
+
+<!-- Contenido dinámico de la página -->
+<main>
+  <router-outlet></router-outlet>
+</main>

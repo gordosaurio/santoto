@@ -1,0 +1,108 @@
+// 🎨 Paleta de colores
+$primary-color: #5e17eb; // Morado brillante
+$secondary-color: #a76eff; // Morado pastel
+$background-color: #330065; // Morado oscuro
+$white: #ffffff; // Blanco para el texto
+
+// 🏠 Contenedor principal
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 6rem 1rem 2rem;
+  box-sizing: border-box;
+
+  .title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: $white;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .sections {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+// 📌 Estilos de las secciones
+.section {
+  background-color: $primary-color;
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $white;
+    margin-bottom: 0.4rem;
+  }
+
+  .section-text {
+    font-size: 1rem;
+    color: $white;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// 🗺️ Estilos del mapa
+.map-container {
+  width: 100%;
+  max-width: 100%;
+  height: 280px; // Reduje la altura para móviles
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1rem;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+}
+
+// 📱 Media Queries para móviles pequeños
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .sections {
+    gap: 1rem;
+  }
+
+  .section {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .section-text {
+    font-size: 0.95rem;
+  }
+
+  .map-container {
+    height: 220px; // Reducido para mejor visualización en móviles
+  }
+}
